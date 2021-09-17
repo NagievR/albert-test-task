@@ -1,5 +1,7 @@
+import IPeople from "./IPeople";
+
 interface IResponseHandler {
-  data: Array<{}> | undefined,
+  data: Array<IPeople>,
   perPage?: number,
   currentPage?: number,
   sortBy?: string | null,

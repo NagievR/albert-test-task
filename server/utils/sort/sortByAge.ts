@@ -1,6 +1,7 @@
 import { sortByNumberAsc, sortByNumberDesc } from "./helpers"; 
+import IPeople from "../../interfaces/IPeople";
 
-const sortByAge = (data: Array<{}>, desc: boolean) => {
+const sortByAge = (data: Array<IPeople>, desc: boolean) => {
   // remove people without age
   const ageCleared = data.filter((person: any) => person.birth_year !== "unknown");
 

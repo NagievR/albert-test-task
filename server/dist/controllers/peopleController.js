@@ -73,14 +73,18 @@ var getPeople = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 };
                 if (cache_1.default.has('peopleList')) {
                     peopleCached = cache_1.default.get('peopleList');
-                    initializeHandler(peopleCached);
-                    return [2 /*return*/];
+                    if (peopleCached) {
+                        initializeHandler(peopleCached);
+                        return [2 /*return*/];
+                    }
+                    ;
                 }
                 return [4 /*yield*/, (0, getAllPagesByURI_1.default)()];
             case 1:
                 peopleList = _a.sent();
                 if (!peopleList) {
                     res.status(400).json({ message: "Cannot get people" });
+                    return [2 /*return*/];
                 }
                 initializeHandler(peopleList);
                 cache_1.default.set('peopleList', peopleList);

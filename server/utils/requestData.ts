@@ -9,7 +9,7 @@ const requestData = async (
     .then(res => res.data)
     .catch(err => {
       console.log(err.message);
-      return null;
+      return;
     });
   }
 };

@@ -8,7 +8,7 @@ import sortData from '../utils/sort';
 
 const handleResponse = (props: IResponseHandler) => {
   const { data, perPage, currentPage, sortBy, desc } = props;
-  let dataToPaginate: Array<{}> | undefined = data; 
+  let dataToPaginate: Array<IPeople> = data; 
   if (sortBy) {
     dataToPaginate = sortData(data, sortBy, desc);
   }
@@ -21,7 +21,7 @@ export const getPeople = async (req: Request, res: Response) => {
   let sortBy: string | null = req.query.sortBy ? String(req.query.sortBy) : null;
   let desc: boolean = req.query.desc === "true" ? true : false;
 
-  const initializeHandler = (data: Array<IPeople> | undefined) => {
+  const initializeHandler = (data: Array<IPeople>) => {
     const props: IResponseHandler = {
       data, perPage, currentPage, sortBy, desc
     };
@@ -30,13 +30,16 @@ export const getPeople = async (req: Request, res: Response) => {
 
   if (cache.has('peopleList')) {
     const peopleCached: Array<IPeople> | undefined = cache.get('peopleList');
-    initializeHandler(peopleCached);
-    return;
+    if (peopleCached) {
+      initializeHandler(peopleCached);
+      return;
+    };
   }
   
   const peopleList: Array<IPeople> | undefined = await getAllPagesByURI();
   if (!peopleList) {
     res.status(400).json({ message: "Cannot get people" });
+    return;
   }
 
   initializeHandler(peopleList);

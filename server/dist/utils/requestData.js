@@ -47,7 +47,7 @@ var requestData = function (uri, parameters) { return __awaiter(void 0, void 0, 
                     .then(function (res) { return res.data; })
                     .catch(function (err) {
                     console.log(err.message);
-                    return null;
+                    return;
                 })];
         }
         return [2 /*return*/];

@@ -8,9 +8,6 @@ var sortByAge_1 = __importDefault(require("./sortByAge"));
 var sortByString_1 = __importDefault(require("./sortByString"));
 var sortData = function (data, sortBy, desc) {
     if (desc === void 0) { desc = false; }
-    if (!data) {
-        return [];
-    }
     if (sortBy === enums_1.SortBy.age) {
         return (0, sortByAge_1.default)(data, desc);
     }
