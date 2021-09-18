@@ -30,6 +30,11 @@ a {
   color: inherit;
 }
 
+img,
+svg {
+  display: inline-block;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1170px;

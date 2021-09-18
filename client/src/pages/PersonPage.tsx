@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
 import IPeople from '../../../server/interfaces/IPeople';
+import PersonInfo from '../components/PersonInfo/PersonInfo';
+import Return from '../components/Return/Return';
 
 interface ILocation extends IPeople {
   pathname: string,
@@ -17,10 +18,12 @@ const PersonPage: React.FC = () => {
   }
 
   return (
-    <div className="container">
-      <Link to="/">{'< Return'}</Link>
-      <h2>{person.name}</h2>
-    </div>
+    <>
+      <Return to="/" />
+      <div className="container">
+        <PersonInfo person={person} />
+      </div>
+    </>
   );
 };
 

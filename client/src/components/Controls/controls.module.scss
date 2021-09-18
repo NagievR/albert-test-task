@@ -4,6 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  margin-top: 50px;
 
   &Loading {
     height: 50px;
@@ -39,5 +40,11 @@
   &:hover {
     background: #b3b3b3;
     border-radius: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .controls {
+    margin-top: 25px;
   }
 }

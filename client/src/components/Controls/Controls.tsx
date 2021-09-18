@@ -18,8 +18,8 @@ const Controls = (props: IProps) => {
     const sorters: Array<React.ReactElement> = [];
     for (let sorter in ESortBy) {
       sorters.push(
-        <li className={s.item}>
-          <Sorter 
+        <li className={s.item} key={sorter}>
+          <Sorter
             sortBy={sorter} 
             setListParams={setListParams} 
             listParams={listParams}

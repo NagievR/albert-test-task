@@ -2,7 +2,6 @@
   color: #F7F7F7;
   background-color: #002D04;
   height: 100px;
-  margin-bottom: 50px;
   display: flex;
   align-items: center;  
   justify-content: center;
@@ -11,7 +10,6 @@
 
 @media (max-width: 767px) {
   .header {
-    margin-bottom: 25px;
     height: 70px;
     font-size: 18px;
   }  

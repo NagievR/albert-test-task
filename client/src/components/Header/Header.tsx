@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from "./header.module.scss";
 
 const Header = () => {
   return (
     <header className={s.header}>
-      <h1>StarWarsAPI</h1>
+      <Link to="/">
+        <h1>StarWarsAPI</h1>
+      </Link>
     </header>
   );
 };
