@@ -26,12 +26,20 @@ const App: React.FC = () => {
   
   const {   
     data, 
+    error,
     isLoading
   } = useFetch('api/people', listParams); 
 
   useEffect(() => {
     setPeople(data);
   }, [data])
+
+  if (error) {
+    console.log(error);
+    return(
+      <h1>Error :(<br />Try again later</h1>
+    );
+  }
   
   return (
     <div>
