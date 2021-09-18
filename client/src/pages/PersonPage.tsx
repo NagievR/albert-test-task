@@ -18,8 +18,8 @@ const PersonPage: React.FC = () => {
 
   return (
     <div className="container">
-      <h1>{person.name}</h1>
-      <Link to="/"><div>Back</div></Link>
+      <Link to="/">{'< Return'}</Link>
+      <h2>{person.name}</h2>
     </div>
   );
 };

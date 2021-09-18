@@ -1,11 +1,34 @@
 .peopleList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  margin-bottom: 30px;
 }
 
 .liItem {
   height: 180px;
-  width: 25%;
-  padding: 0 20px 20px 0;
+  width: 100%;
   box-sizing: border-box;
+}
+
+.skeletonContainer {
+  height: 570px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .peopleList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+  }
+
+  .liItem {
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .peopleList {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

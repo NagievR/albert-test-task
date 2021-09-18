@@ -1,4 +1,6 @@
-
+html {
+  background-color: #F7F7F7;
+}
 
 body {
   margin: 0;
@@ -23,6 +25,10 @@ ul {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .container {
   margin: 0 auto;
@@ -31,6 +37,15 @@ ul {
   padding-right: 20px;
 }
 .bottom-line {
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.mb-50 {
   margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .mb-20-sm {
+    margin-bottom: 20px;
+  }
 }

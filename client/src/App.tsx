@@ -6,6 +6,7 @@ import IListParams from './interfaces/IListParams';
 
 import MainPage from './pages/MainPage';
 import PersonPage from './pages/PersonPage';
+import Header from './components/Header/Header';
 
 const App: React.FC = () => {
   const [listParams, setListParams] = useState<IListParams>({
@@ -34,20 +35,22 @@ const App: React.FC = () => {
   
   return (
     <div>
-      <h1>SWAPI</h1>      
-      <Switch>
-        <Route exact path="/" >
-          <MainPage 
-            people={people} 
-            isLoading={isLoading} 
-            setListParams={setListParams}
-            listParams={listParams}
-          />
-        </Route>
-        <Route exact path="/:name" >
-          <PersonPage />
-        </Route>
-      </Switch>
+      <Header />
+      <main>
+        <Switch>
+          <Route exact path="/" >
+            <MainPage 
+              people={people} 
+              isLoading={isLoading} 
+              setListParams={setListParams}
+              listParams={listParams}
+            />
+          </Route>
+          <Route exact path="/:name" >
+            <PersonPage />
+          </Route>
+        </Switch>
+      </main>
     </div>
   );
 }

@@ -14,7 +14,8 @@ const PeopleList = (props: Props) => {
 
   if (isLoading) {
     return (
-      <div>LOADING</div>
+      <section className={`loading ${s.skeletonContainer}`}>
+      </section>
     );
   }
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import s from './personCard.module.scss';
-import IPeople from '../../../../../server/interfaces/IPeople';
 import { Link } from 'react-router-dom';
+import IPeople from '../../../../../server/interfaces/IPeople';
 import createReadableURL from '../../../utils/createReadableURL';
+import normalizeSuffix from '../../../utils/normalizeSuffix';
 
 interface IProps {
   person: IPeople
@@ -17,10 +18,13 @@ const PersonCard = (props: IProps) => {
         pathname: `/${createReadableURL(person.name)}`,
         state: person,
       }}>
-        <div>{person.name}</div>
+        <div className={s.name}>{person.name}</div>
       </Link>
       <div>{person.birth_year}</div>
-      <div>seen in {person.films.length} movies</div>
+      <div>
+        Seen in {person.films.length} 
+        {normalizeSuffix(person.films.length, ' movie')}
+      </div>
     </article>
   );
 };

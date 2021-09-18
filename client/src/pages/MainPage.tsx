@@ -16,7 +16,7 @@ const MainPage = (props: IProps) => {
   const { people, isLoading, setListParams, listParams } = props;
   return (
     <>
-      <div className="bottom-line">
+      <div className="bottom-line  mb-50 mb-20-sm">
         <div className="container">
           <Controls 
             setListParams={setListParams} 

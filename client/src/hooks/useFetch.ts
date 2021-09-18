@@ -34,7 +34,7 @@ const useFetch = (url: string, params: object | null = null): IUseFetch => {
 
       } finally {
         if (!cleanup) {
-          setTimeout(() => setIsLoading(false), 1234);
+          setTimeout(() => setIsLoading(false), 3000);
         }
       }
     };

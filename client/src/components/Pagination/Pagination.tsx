@@ -36,7 +36,10 @@ const Pagination = (props: IProps) => {
   };
 
   if (isLoading) {
-    return <section>loading...</section>;
+    return (
+      <section className={`loading ${s.skeletonContainer}`}>
+      </section>
+    );
   }
 
   return (
@@ -47,4 +50,3 @@ const Pagination = (props: IProps) => {
 }
 
 export default Pagination;
-
