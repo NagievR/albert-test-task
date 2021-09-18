@@ -16,8 +16,8 @@ const handleResponse = (props: IResponseHandler) => {
 };
 
 export const getPeople = async (req: Request, res: Response) => {
-  let perPage: number = Number(req.query.perPage);
-  let currentPage: number = Number(req.query.currPage);
+  let perPage: number = Number(req.query.perPage) || 8;
+  let currentPage: number = Number(req.query.currPage) || 1;
   let sortBy: string | null = req.query.sortBy ? String(req.query.sortBy) : null;
   let desc: boolean = req.query.desc === "true" ? true : false;
 
@@ -30,16 +30,12 @@ export const getPeople = async (req: Request, res: Response) => {
 
   if (cache.has('peopleList')) {
     const peopleCached: Array<IPeople> | undefined = cache.get('peopleList');
-    if (peopleCached) {
-      initializeHandler(peopleCached);
-      return;
-    };
+    return initializeHandler(peopleCached!);
   }
   
   const peopleList: Array<IPeople> | undefined = await getAllPagesByURI();
   if (!peopleList) {
-    res.status(400).json({ message: "Cannot get people" });
-    return;
+    return res.status(400).json({ message: "Cannot get people" });
   }
 
   initializeHandler(peopleList);

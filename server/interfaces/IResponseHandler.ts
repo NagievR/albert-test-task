@@ -1,6 +1,6 @@
 import IPeople from "./IPeople";
 
-interface IResponseHandler {
+interface IResponseHandler{
   data: Array<IPeople>,
   perPage?: number,
   currentPage?: number,

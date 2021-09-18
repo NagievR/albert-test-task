@@ -20,7 +20,7 @@ const getAllPagesByURI = async () => {
     URI = data.next;
     peopleList = [...peopleList, ...data.results];
   }
-
+  
   return peopleList;
 };
 

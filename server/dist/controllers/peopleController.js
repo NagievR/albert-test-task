@@ -57,8 +57,8 @@ var getPeople = function (req, res) { return __awaiter(void 0, void 0, void 0, f
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                perPage = Number(req.query.perPage);
-                currentPage = Number(req.query.currPage);
+                perPage = Number(req.query.perPage) || 8;
+                currentPage = Number(req.query.currPage) || 1;
                 sortBy = req.query.sortBy ? String(req.query.sortBy) : null;
                 desc = req.query.desc === "true" ? true : false;
                 initializeHandler = function (data) {
@@ -73,18 +73,13 @@ var getPeople = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 };
                 if (cache_1.default.has('peopleList')) {
                     peopleCached = cache_1.default.get('peopleList');
-                    if (peopleCached) {
-                        initializeHandler(peopleCached);
-                        return [2 /*return*/];
-                    }
-                    ;
+                    return [2 /*return*/, initializeHandler(peopleCached)];
                 }
                 return [4 /*yield*/, (0, getAllPagesByURI_1.default)()];
             case 1:
                 peopleList = _a.sent();
                 if (!peopleList) {
-                    res.status(400).json({ message: "Cannot get people" });
-                    return [2 /*return*/];
+                    return [2 /*return*/, res.status(400).json({ message: "Cannot get people" })];
                 }
                 initializeHandler(peopleList);
                 cache_1.default.set('peopleList', peopleList);

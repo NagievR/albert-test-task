@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
 
-const PagePerson = () => {
+const PersonPage = () => {
   return (
     <div>
       PagePerson
@@ -9,4 +8,4 @@ const PagePerson = () => {
   );
 };
 
-export default PagePerson;
+export default PersonPage;
