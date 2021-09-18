@@ -1,0 +1,11 @@
+.peopleList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.liItem {
+  height: 180px;
+  width: 25%;
+  padding: 0 20px 20px 0;
+  box-sizing: border-box;
+}

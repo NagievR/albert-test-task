@@ -1,19 +1,26 @@
 import React from 'react';
 import IPeopleWithMeta from '../interfaces/IPeopleWithMeta';
-import PeopleList from '../compnents/PersonList/PeopleList';
+import PeopleList from '../components/PersonList/PeopleList';
+import Pagination from '../components/Pagination/Pagination';
 
-interface Props {
+interface IProps {
   people: IPeopleWithMeta,
-  isLoading: boolean
-}
+  isLoading: boolean,
+  setListParams: any 
+};
 
-const MainPage = (props: Props) => {
-  const { people, isLoading } = props;
+const MainPage = (props: IProps) => {
+  const { people, isLoading, setListParams } = props;
 
   return (
-
-    <PeopleList people={people} isLoading={isLoading} />
-    
+    <div className="container">
+      <PeopleList people={people} isLoading={isLoading} />
+      <Pagination 
+        pagesCount={people.lastPage} 
+        isLoading={isLoading} 
+        setListParams={setListParams}
+      />
+    </div>
   );
 };
 

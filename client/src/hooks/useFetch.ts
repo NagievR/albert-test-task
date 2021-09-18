@@ -45,7 +45,7 @@ const useFetch = (url: string, params: object | null = null): IUseFetch => {
       cleanup = false;
       source.cancel();
     }
-  }, [url]);
+  }, [url, params]);
 
   return { 
     data, 

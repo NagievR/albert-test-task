@@ -19,10 +19,14 @@ const PeopleList = (props: Props) => {
   }
 
   return (
-    <section className={''}>
-      {people.data.map((person: IPeople) => (
-        <PersonCard key={person.url} person={person} />
-      ))}
+    <section>
+      <ul className={s.peopleList}>
+        {people.data.map((person: IPeople) => (
+          <li className={s.liItem} key={person.url}>
+            <PersonCard person={person} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
