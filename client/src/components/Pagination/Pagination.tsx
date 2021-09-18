@@ -1,17 +1,24 @@
 import React from 'react';
-import s from "pagination.module.scss";
+import s from "./pagination.module.scss";
+import IListParams from '../../interfaces/IListParams';
 
 interface IProps {
   pagesCount: number,
   isLoading: boolean,
-  setListParams: any
+  setListParams: any,
+  listParams: IListParams
 };
 
 const Pagination = (props: IProps) => {
-  const { pagesCount, isLoading, setListParams } = props;
+  const { pagesCount, isLoading, setListParams, listParams } = props;
+  const currPage = listParams.currPage;
 
-  const handlePageChange = (pageNumber: number): void => {
-    setListParams((prev: any) => ({ ...prev, currPage: pageNumber }));
+  const changePage = (toPage: number): void => {
+    if (currPage !== toPage) {
+      setListParams((prev: IListParams) => (
+        { ...prev, currPage: toPage })
+      );
+    }
   };
 
   const getPagesCount = (): React.ReactElement[] => {
@@ -19,9 +26,9 @@ const Pagination = (props: IProps) => {
     for (let i = 1; i <= pagesCount; i++) {
       list.push(
         <li 
-          className=""
+          className={`${currPage === i ? s.active : ''} ${s.item}`}
           key={i}
-          onClick={() => handlePageChange(i)}
+          onClick={() => changePage(i)}
         >{i}</li>
       );
     }
@@ -34,7 +41,7 @@ const Pagination = (props: IProps) => {
 
   return (
     <section>
-      <ul>{getPagesCount()}</ul>
+      <ul className={s.list}>{getPagesCount()}</ul>
     </section>
   );
 }

@@ -1,0 +1,29 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -10px;
+}
+.item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 28px;
+  width: 28px;
+  background-color: #e4e3e3;
+  border-radius: 50%;
+  display: flex;
+  line-height: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dbdbdb;
+  }
+}
+.active {
+  cursor: default;
+  background-color: #b3b3b3;
+  &:hover {
+    background-color: #b3b3b3;
+  }
+}

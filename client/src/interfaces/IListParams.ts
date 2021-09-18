@@ -1,6 +1,6 @@
 interface IListParams {
-  currPage: number, //
-  perPage: number, //
+  currPage: number, 
+  perPage: number, 
   sortBy: string | null, 
   desc: boolean 
 };

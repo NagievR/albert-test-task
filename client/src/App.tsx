@@ -41,6 +41,7 @@ const App: React.FC = () => {
             people={people} 
             isLoading={isLoading} 
             setListParams={setListParams}
+            listParams={listParams}
           />
         </Route>
         <Route exact path="/:name" >

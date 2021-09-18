@@ -1,0 +1,42 @@
+.controls {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &Loading {
+    height: 50px;
+    background-color: #e4e3e3;
+    border-radius: 10px;
+  }
+}
+
+.text {
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.list {
+  display: flex;
+}
+.item {
+  height: 100%;
+  margin-right: 15px;
+}
+
+.cancel {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e4e3e3;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.4s, border-radius 0.4s;
+
+  &:hover {
+    background: #b3b3b3;
+    border-radius: 50%;
+  }
+}

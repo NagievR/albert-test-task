@@ -24,10 +24,13 @@ ul {
 }
 
 
-
 .container {
   margin: 0 auto;
   max-width: 1170px;
   padding-left: 20px;
   padding-right: 20px;
+}
+.bottom-line {
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 50px;
 }
